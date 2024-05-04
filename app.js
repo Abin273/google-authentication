@@ -5,7 +5,8 @@ require("dotenv").config();
 const path = require("path");
 const logger = require('morgan')
 
-const userRouter = require("./routes/userRoute");
+const authRouter = require("./routes/authRoutes");
+const homeRouter = require('./routes/homeRoutes')
 
 const app = express();
 
@@ -28,7 +29,8 @@ app.use(logger("dev"));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.use("/", userRouter);
+app.use("/", homeRouter);
+app.use("/auth", authRouter);
 
 
 const PORT = process.env.PORT || 8080;

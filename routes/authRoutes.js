@@ -11,14 +11,14 @@ router.get("/", (req, res) => {
 // Passport.js redirects user to Google's authentication endpoint where user
 //  can log in with their Google credentials.
 router.get(
-	"/auth/google",
+	"/google",
 	passport.authenticate("google", { scope: ["email", "profile"] })
 );
 
 // After the user successfully logs in with Google, Google will redirect back to this URL
 //  along with an authentication code
 router.get(
-	"/auth/google/callback",
+	"/google/callback",
 	passport.authenticate("google", {
 		successRedirect: "/home",
 		failureRedirect: "/",
