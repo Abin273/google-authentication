@@ -1,15 +1,15 @@
 const express = require("express");
 const session = require("express-session");
+const passport = require('passport')
 require("dotenv").config();
 const path = require("path");
 const logger = require('morgan')
 
-const connectDb = require("./config/db");
 const userRouter = require("./routes/userRoute");
 
 const app = express();
 
-connectDb();
+// Configure session middleware
 app.use(
 	session({
 		secret: process.env.SESSION_SECRET,
@@ -18,6 +18,11 @@ app.use(
 		cookie: { secure: false },
 	})
 );
+
+// Initialize Passport.js middleware
+app.use( passport.initialize());
+app.use( passport.session());
+
 app.use(logger("dev"));
 
 app.set("view engine", "ejs");

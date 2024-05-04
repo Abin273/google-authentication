@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hightech auth Details</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    Home page
+    <div class="container">
+        <h1>😁😁😁 Welcome 😁😁😁</h1>
+        <h1>Name: <%= user?.given_name %></h1>
+        <h3>Email: <%= user?.email %></h3>
+        <img src="<%= user?.picture %>" alt="">
+    </div>
 </body>
+
 </html>
